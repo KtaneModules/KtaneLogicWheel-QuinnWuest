@@ -103,7 +103,7 @@ public class LogicWheelScript : MonoBehaviour
                 _curBinary[i] = 0;
                 ScreenTexts[i].text = _curBinary[i].ToString();
             }
-            Debug.LogFormat("[Logic Wheel #{0}] Moved to submission phase. Unused numbers wre {1} and {2}. Solution: {3}", _moduleId, _unusedNumbers[0], _unusedNumbers[1], _solution);
+            Debug.LogFormat("[Logic Wheel #{0}] Moved to submission phase. Unused numbers were {1} and {2}. Solution: {3}", _moduleId, _unusedNumbers[0], _unusedNumbers[1], _solution);
             return false;
         }
         if (_inSubmissionPhase)
