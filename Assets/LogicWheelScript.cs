@@ -227,12 +227,24 @@ public class LogicWheelScript : MonoBehaviour
                     yield break;
                 list.Add(ix);
             }
+            if (list.Count != 5)
+                yield break;
             yield return null;
             yield return "solve";
             yield return "strike";
+            if (!_hasGenerated)
+            {
+                SubmitSel.OnInteract();
+                yield break;
+            }
+            if (!_inSubmissionPhase)
+            {
+                SubmitSel.OnInteract();
+                yield return new WaitForSeconds(0.1f);
+            }
             for (int i = 0; i < 5; i++)
             {
-                if (list[i] != _curDigits[i] && _hasGenerated)
+                if (list[i] != _curBinary[i])
                 {
                     ArrowSels[i].OnInteract();
                     yield return new WaitForSeconds(0.1f);
